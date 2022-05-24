@@ -1,0 +1,43 @@
+---
+- name: install all package
+  yum:
+    name:
+      - java-1.8.0-openjdk-devel
+      - tomcat
+      - tomcat-webapps
+      - tomcat-admin-webapps
+    state: present
+
+- name:  loop through list
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - java-1.8.0-openjdk-devel
+    - tomcat
+    - tomcat-webapps
+    - tomcat-admin-webapps
+
+- name: copy
+  template:
+    src: tomcat-users.xml
+    dest: /usr/share/tomcat/conf/tomcat-users.xml
+
+- name: restart tomcat
+  systemd:
+    name: tomcat
+    state: restarted
+    enabled: true
+    daemon_reload: true
+
+- name: copy deploy.sh
+  template:
+    src: deploy.sh
+    dest: /home/ram
+    mode: 777
+    become: yes
+
+- name: deploy war file
+  command: ./deploy.sh
+  args:
+    chdir: /home/ram
+  become: yes
