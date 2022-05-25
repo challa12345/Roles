@@ -16,6 +16,7 @@
     - tomcat
     - tomcat-webapps
     - tomcat-admin-webapps
+    - wget
 
 - name: copy
   copy:
