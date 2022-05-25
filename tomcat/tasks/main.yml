@@ -34,7 +34,7 @@
     src: tomcat/template/deploy.sh
     dest: /home/ram
     mode: 777
-    become: yes
+    
 
 - name: deploy war file
   command: ./deploy.sh
