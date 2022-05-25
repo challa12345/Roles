@@ -10,4 +10,5 @@ fi
 
 cd /tmp
 wget https://tomcat.apache.org/tomcat-5.5-doc/appdev/sample/sample.war
-sudo cp /tmp/*.war $DEPLOY_PATH
+mv sample.war ram.war
+sudo cp /tmp/ram.war $DEPLOY_PATH
