@@ -37,7 +37,7 @@
     
 
 - name: deploy war file
-  command: ./deploy.sh
+  command: ./home/ram/deploy.sh
   args:
     chdir: /home/ram
   become: yes
