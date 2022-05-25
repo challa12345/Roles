@@ -30,8 +30,8 @@
     daemon_reload: true
 
 - name: copy deploy.sh
-  template:
-    src: deploy.sh
+  copy:
+    src: tomcat/template/deploy.sh
     dest: /home/ram
     mode: 777
     become: yes
