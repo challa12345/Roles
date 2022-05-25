@@ -18,8 +18,8 @@
     - tomcat-admin-webapps
 
 - name: copy
-  template:
-    src: tomcat-users.xml
+  copy:
+    src: tomcat/template/tomcat-users.xml
     dest: /usr/share/tomcat/conf/tomcat-users.xml
 
 - name: restart tomcat
